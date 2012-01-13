@@ -1,0 +1,3 @@
+[submodule "vendor/ZendFramework"]
+	path = vendor/ZendFramework
+	url = git://git@github.com:Thinkscape/zf2.git
