@@ -37,4 +37,4 @@ echo " | Width: ".$console->getWidth();
 echo " | Height: ".$console->getHeight();
 echo " | UTF8: ".($console->isUtf8() ? 'yes' : 'no');
 echo "\n";
-echo str_repeat('-',$console->getWidth());
+echo str_repeat('-',$console->getWidth())."\n";
