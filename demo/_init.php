@@ -23,8 +23,8 @@ error_reporting(E_ALL);
 /**
  * Load console
  */
-$forceAdapter = isset($argv[1]) ? ucfirst(trim($argv[1])) : null;
-$forceCharset = isset($argv[2]) ? ucfirst(trim($argv[2])) : null;
+if(!isset($forceAdapter))   $forceAdapter = null;
+if(!isset($forceCharset))   $forceCharset = null;
 $console = Zend\Console\Console::getInstance($forceAdapter, $forceCharset);
 
 /**
