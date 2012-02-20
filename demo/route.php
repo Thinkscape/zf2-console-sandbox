@@ -1,10 +1,10 @@
 <?php
 use Zend\Stdlib\Request as BaseRequest,
-    Zend\Mvc\Router\Cli\RouteMatch,
+    Zend\Mvc\Router\Console\RouteMatch,
     Zend\Console\Getopt,
-    Zend\Mvc\Router\Cli\Simple,
-    Zend\Cli\Request
-//    Zend\Mvc\Router\Cli\Simple
+    Zend\Mvc\Router\Console\Simple,
+    Zend\Console\Request
+//    Zend\Mvc\Router\Console\Simple
 ;
 
 ini_set('display_errors',1);

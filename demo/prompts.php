@@ -5,7 +5,7 @@
  * -------------------------------------------------------------------
  *
  */
-use Zend\Cli\Prompt,
+use Zend\Console\Prompt,
     Zend\Console\Color
 ;
 $forceAdapter = isset($argv[1]) ? ucfirst(trim($argv[1])) : null;
