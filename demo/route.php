@@ -13,13 +13,15 @@ require_once '_init.php';
 
 
 $route = Simple::factory(array(
-//    'route' => 'install ( module | package | application | app) NAME',
-    'route' => '--foo --bar=n IMPORTANT',
+//    'route' => 'install [ module | package | application | app] NAME',
+//    'route' => '--foo --bar=n IMPORTANT',
+//        'route' => 'foo'
+        'route' => ' (--foo | --bar)'
 ));
-$request = new Request();
+$request = new Request(array('script.php', '--bar'));
 $match = $route->match($request);
 
-print_r($match);
+var_dump($match);
 
 
 
