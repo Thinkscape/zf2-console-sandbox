@@ -23,10 +23,10 @@ return array(
             'Zend\Mvc\Router\RouteStack' => array(
                 'parameters' => array(
                     'routes' => array(
-                        'usage' => array(
-                            'type' => 'Zend\Mvc\Router\Console\Simple',
+                        'default' => array(
+                            'type' => 'Zend\Mvc\Router\Console\Catchall',
                             'options' => array(
-                                'route' => '( --usage | --help | -h )',
+                                'route'=> '',
                                 'defaults' => array(
                                     'controller' => 'Application\Controller\IndexController',
                                     'action'     => 'usage',
@@ -36,10 +36,10 @@ return array(
                         'index' => array(
                             'type'    => 'Zend\Mvc\Router\Console\Simple',
                             'options' => array(
-                                'route'    => ' [--speed=] [--no-color] ',
+                                'route'    => ' [--speed=] [--intensity=] ',
                                 'constraints' => array(
-                                    'speed'  => '[0-9]*',
-                                    'action' => '',
+                                    'speed'      => '/^[1-9]$/',
+                                    'intensity'  => '/^[0-9]+(?:\.[0-9]+)?$/',
                                 ),
                                 'defaults' => array(
                                     'controller' => 'Application\Controller\IndexController',
@@ -47,10 +47,10 @@ return array(
                                 ),
                             ),
                         ),
-                        'default' => array(
-                            'type' => 'Zend\Mvc\Router\Console\Catchall',
+                        'usage' => array(
+                            'type' => 'Zend\Mvc\Router\Console\Simple',
                             'options' => array(
-                                'route'=> '',
+                                'route' => '( --usage | --help | -h | --version | -v)',
                                 'defaults' => array(
                                     'controller' => 'Application\Controller\IndexController',
                                     'action'     => 'usage',
@@ -63,13 +63,13 @@ return array(
 
             // Setup for the view layer.
 
-            // Using the PhpRenderer, which just handles html produced by php 
-            // scripts
-            'Zend\View\Renderer\PhpRenderer' => array(
+            // Use Console renderer
+            'Zend\View\Renderer\ConsoleRenderer' => array(
                 'parameters' => array(
                     'resolver' => 'Zend\View\Resolver\AggregateResolver',
                 ),
             ),
+
             // Defining how the view scripts should be resolved by stacking up
             // a Zend\View\Resolver\TemplateMapResolver and a
             // Zend\View\Resolver\TemplatePathStack

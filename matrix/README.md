@@ -1,3 +1,4 @@
+
 Matrix Console Screensaver
 =======================
 
@@ -8,16 +9,34 @@ to configure its options.
 
 If everything went well, it will display a well-known screensaver for your viewing pleasure.
 
-Usage
-------
+How to run?
+------------
 
- * On Windows, open Command Prompt, CD to this folder and type `matrix.bat`
- * On Linux/Unix, open this directory and type `./matrix`
+ * On Windows:
+    * Open Command Prompt
+    * CD to this folder
+    * type `matrix.bat`
+
+ * On Linux, Unix and Mac:
+    * Open terminal
+    * cd to this directory
+    * type `./matrix`
+
+Run-time options
+--------------------
+
+Type `--help` or `--usage` to display available options.
+
 
 Compatibility
 --------------
-This application has been tested under:
+This application has been tested and works under:
 
- * Linux with UTF8 support (Ubuntu 12)
- * Windows 7 non-UTF8
+ * Linux with UTF-8 (Ubuntu 12)
+ * Linux without UTF-8 (Ubuntu 12)
+ * Windows 7 command line with ANSICON, non-UTF
+
+The following have been tested and will not work:
+
+ * Windows without ANSICON (because virtual adapter is WIP)
 
