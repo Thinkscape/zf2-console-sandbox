@@ -57,6 +57,17 @@ USAGE;
         $width   = $console->getWidth();
         $height  = $console->getHeight();
 
+        /**
+         * Bail out if Windows without Ansicon
+         */
+        if($console instanceof \Zend\Console\Adapter\Virtual){
+            return
+                "I'm sorry, but Matrix does not work on stock Windows yet.\n".
+                "To make it work, install ANSICON:\n ".
+                "     https://github.com/adoxa/ansicon\n\n".
+                "We are also working on supporting Windows without Ansicon -\n".
+                "You can try pullin from this repo next week and trying again.\n";
+        }
 
         /**
          * Read options
