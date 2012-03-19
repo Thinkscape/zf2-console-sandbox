@@ -66,7 +66,7 @@ USAGE;
                 "To make it work, install ANSICON:\n ".
                 "     https://github.com/adoxa/ansicon\n\n".
                 "We are also working on supporting Windows without Ansicon -\n".
-                "You can try pullin from this repo next week and trying again.\n";
+                "You can try pulling from this repo next week and trying again.\n";
         }
 
         /**
