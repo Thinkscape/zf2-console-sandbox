@@ -2,21 +2,27 @@
 
 namespace Application;
 
-use Zend\Module\Manager,
-    Zend\EventManager\StaticEventManager,
-    Zend\Module\Consumer\AutoloaderProvider;
+use Zend\ModuleManager\ModuleManager,
+    Zend\ModuleManager\Feature\AutoloaderProviderInterface,
+    Zend\ModuleManager\Feature\ConfigProviderInterface,
+    Zend\ModuleManager\Feature\InitProviderInterface,
+    Zend\ModuleManager\ModuleManagerInterface,
+    Zend\ModuleManager\Feature\ServiceProviderInterface;
 
-class Module implements AutoloaderProvider
+class Module implements AutoloaderProviderInterface
+    ,ConfigProviderInterface
+    ,InitProviderInterface
+//    ,ServiceProviderInterface
 {
-    public function init(Manager $moduleManager)
+    public function init(ModuleManagerInterface $moduleManager)
     {
-        $events = StaticEventManager::getInstance();
-        $events->attach('bootstrap', 'bootstrap', array($this, 'initializeView'), 100);
+//        $events = StaticEventManager::getInstance();
+//        $events->attach('bootstrap', 'bootstrap', array($this, 'initializeView'), 100);
     }
 
     public function getAutoloaderConfig()
     {
-        return array(
+       return array(
             'Zend\Loader\ClassMapAutoloader' => array(
                 __DIR__ . '/autoload_classmap.php',
             ),
@@ -35,10 +41,10 @@ class Module implements AutoloaderProvider
     
     public function initializeView($e)
     {
-        $app          = $e->getParam('application');
-        $basePath     = $app->getRequest()->getBasePath();
-        $locator      = $app->getLocator();
-        $renderer     = $locator->get('Zend\View\Renderer\PhpRenderer');
-        $renderer->plugin('basePath')->setBasePath($basePath);
+//        $app          = $e->getParam('application');
+//        $basePath     = $app->getRequest()->getBasePath();
+//        $locator      = $app->getLocator();
+//        $renderer     = $locator->get('Zend\View\Renderer\PhpRenderer');
+//        $renderer->plugin('basePath')->setBasePath($basePath);
     }
 }

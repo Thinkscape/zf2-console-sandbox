@@ -2,14 +2,15 @@
 
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\ActionController,
-    Zend\View\Model\ViewModel,
+use Zend\Mvc\Controller\AbstractActionController,
+    Zend\View\Model\ConsoleModel,
     Zend\Console\Adapter as Console,
     Zend\Console\Console as ConsoleStatic,
+    Zend\Console\Adapter\Virtual,
     Zend\Console\Color
 ;
 
-class IndexController extends ActionController
+class IndexController extends AbstractActionController
 {
     /**
      * Display usage information
@@ -60,13 +61,13 @@ USAGE;
         /**
          * Bail out if Windows without Ansicon
          */
-        if($console instanceof \Zend\Console\Adapter\Virtual){
+        if($console instanceof Virtual){
             return
                 "I'm sorry, but Matrix does not work on stock Windows yet.\n".
                 "To make it work, install ANSICON:\n ".
                 "     https://github.com/adoxa/ansicon\n\n".
-                "We are also working on supporting Windows without Ansicon -\n".
-                "You can try pulling from this repo next week and trying again.\n";
+                "We are also working on supporting Windows without Ansicon.\n"
+            ;
         }
 
         /**
@@ -187,6 +188,6 @@ USAGE;
      * @return Console
      */
     public function getConsole(){
-        return $this->getLocator()->get('Zend\Console\Console');
+        return $this->getServiceLocator()->get('console');
     }
 }
