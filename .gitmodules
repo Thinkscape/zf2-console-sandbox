@@ -1,3 +1,6 @@
-[submodule "vendor/ZendFramework"]
+﻿[submodule "vendor/ZendFramework"]
 	path = vendor/ZendFramework
 	url = git://github.com/Thinkscape/zf2.git
+[submodule "vendor/ZFTool"]
+	path = vendor/ZFTool
+	url = https://github.com/zendframework/ZFTool.git
