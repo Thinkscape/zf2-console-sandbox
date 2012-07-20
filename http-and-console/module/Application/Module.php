@@ -3,8 +3,10 @@
 namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
+use Zend\ModuleManager\Feature\ConsoleBannerProviderInterface;
+use Zend\Console\Adapter as ConsoleAdapter;
 
-class Module
+class Module implements ConsoleBannerProviderInterface
 {
     public function onBootstrap($e)
     {
@@ -27,6 +29,23 @@ class Module
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
             ),
+        );
+    }
+
+    public function getConsoleBanner(ConsoleAdapter $console){
+        return
+            "==------------------------------------------------------==\n".
+            "    This is a an example HTTP+Console ZF2 application    \n".
+            "==------------------------------------------------------==\n".
+            "It works as a web app, when run via public/index.php, but\n".
+            "also provides several console commands you can try out...\n\n".
+            "Available console commands:"
+        ;
+    }
+
+     public function getConsoleUsage(ConsoleAdapter $console){
+        return array(
+            'time'                      => 'show current time'
         );
     }
 }
