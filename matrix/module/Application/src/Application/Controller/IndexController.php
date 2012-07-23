@@ -2,13 +2,13 @@
 
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController,
-    Zend\View\Model\ConsoleModel,
-    Zend\Console\Adapter as Console,
-    Zend\Console\Console as ConsoleStatic,
-    Zend\Console\Adapter\Virtual,
-    Zend\Console\Color
-;
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ConsoleModel;
+use Zend\Console\Adapter as Console;
+use Zend\Console\Console as ConsoleStatic;
+use Zend\Console\Adapter\Virtual;
+use Zend\Console\ColorInterface as Color;
+
 
 class IndexController extends AbstractActionController
 {

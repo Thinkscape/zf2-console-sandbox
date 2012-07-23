@@ -1,5 +1,31 @@
 <?php
 return array(
+    'console' => array(
+        'router' => array(
+            'routes' => array(
+                'time' => array(
+                    'options' => array(
+                        'route'    => 'time',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\Index',
+                            'action'     => 'time',
+                        ),
+                    ),
+                ),
+
+                'exception' => array(
+                    'options' => array(
+                        'route'    => 'exception',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\Index',
+                            'action'     => 'exception',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    ),
+
     'router' => array(
         'routes' => array(
             'home' => array(

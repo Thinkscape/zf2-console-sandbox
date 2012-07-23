@@ -4,9 +4,10 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\ModuleManager\Feature\ConsoleBannerProviderInterface;
-use Zend\Console\Adapter as ConsoleAdapter;
+use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
+use Zend\Console\AdapterInterface as Console;
 
-class Module implements ConsoleBannerProviderInterface
+class Module implements ConsoleBannerProviderInterface, ConsoleUsageProviderInterface
 {
     public function onBootstrap($e)
     {
@@ -32,20 +33,22 @@ class Module implements ConsoleBannerProviderInterface
         );
     }
 
-    public function getConsoleBanner(ConsoleAdapter $console){
+    public function getConsoleBanner(Console $console){
         return
             "==------------------------------------------------------==\n".
             "    This is a an example HTTP+Console ZF2 application    \n".
             "==------------------------------------------------------==\n".
             "It works as a web app, when run via public/index.php, but\n".
-            "also provides several console commands you can try out...\n\n".
+            "also provides several console commands you can try out...\n".
+            "\n".
             "Available console commands:"
         ;
     }
 
-     public function getConsoleUsage(ConsoleAdapter $console){
+     public function getConsoleUsage(Console $console){
         return array(
-            'time'                      => 'show current time'
+            'time'                      => 'show current time',
+            'exception'                 => 'Throw an example exception from within action controller',
         );
     }
 }

@@ -11,4 +11,12 @@ class IndexController extends AbstractActionController
     {
         return new ViewModel();
     }
+
+    public function timeAction(){
+        return 'Current time: '.date('H:i:s T');
+    }
+
+    public function exceptionAction(){
+        throw new \Exception('Boom! An example exception. ');
+    }
 }
