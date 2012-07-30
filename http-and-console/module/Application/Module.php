@@ -5,9 +5,11 @@ namespace Application;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\ModuleManager\Feature\ConsoleBannerProviderInterface;
 use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\Console\AdapterInterface as Console;
 
-class Module implements ConsoleBannerProviderInterface, ConsoleUsageProviderInterface
+class Module implements ConsoleBannerProviderInterface, ConsoleUsageProviderInterface, ConfigProviderInterface, AutoloaderProviderInterface
 {
     public function onBootstrap($e)
     {
@@ -45,10 +47,14 @@ class Module implements ConsoleBannerProviderInterface, ConsoleUsageProviderInte
         ;
     }
 
-     public function getConsoleUsage(Console $console){
+    public function getConsoleUsage(Console $console){
         return array(
-            'time'                      => 'show current time',
-            'exception'                 => 'Throw an example exception from within action controller',
-        );
+                // Describe available commands
+                'user reset-password [--verbose|-v] USER EMAIL'    => 'Reset password for a user',
+
+                // Describe expected parameters
+                array( 'USER NAME',       'Email of the user for a password reset' ),
+                array( '--verbose|-v',    '(optional) turn on verbose mode'        ),
+            );
     }
 }
