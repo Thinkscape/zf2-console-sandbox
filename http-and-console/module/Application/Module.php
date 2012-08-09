@@ -7,7 +7,7 @@ use Zend\ModuleManager\Feature\ConsoleBannerProviderInterface;
 use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\Console\AdapterInterface as Console;
+use Zend\Console\Adapter\AdapterInterface as Console;
 
 class Module implements ConsoleBannerProviderInterface, ConsoleUsageProviderInterface, ConfigProviderInterface, AutoloaderProviderInterface
 {

@@ -6,7 +6,7 @@
  *
  */
 use Zend\Console\Prompt,
-    Zend\Console\Color
+    Zend\Console\ColorInterface as Color
 ;
 $forceAdapter = isset($argv[1]) ? ucfirst(trim($argv[1])) : null;
 $forceCharset = isset($argv[2]) ? ucfirst(trim($argv[2])) : null;
